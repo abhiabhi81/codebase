@@ -1,15 +1,13 @@
 import boto3
 
-service_name = 's3'
-region_name = 'ap-south-1'
-bucket_name = 'codebase-assignment'
-file_key = 'codebaseAssignment.txt'
+region_name = 'us-east-1'
+file_key = 'codebase.txt'
 
-s3 = boto3.client(service_name, region_name=region_name)
+s3 = boto3.client('s3', region_name=region_name)
 
 try:
     
-    response = s3.get_object(Bucket=bucket_name, Key=file_key)
+    response = s3.get_object(Bucket='abhishek-cloud-assignment', Key=file_key)
     
    
     file_contents = response['Body'].read().decode('utf-8')
